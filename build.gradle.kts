@@ -25,6 +25,7 @@ dependencies {
 	implementation ("com.google.code.gson:gson:2.8.6")
 	implementation ("javax.validation:validation-api:2.0.1.Final")
 	implementation("org.hibernate.validator:hibernate-validator:7.0.0.Final")
+	implementation("org.hibernate:hibernate-entitymanager:5.4.31.Final")
 // 	implementation("org.springframework.boot:spring-boot-starter-security")
 //	implementation("org.springframework.security:spring-security-jwt")
 	runtimeOnly("org.postgresql:postgresql")

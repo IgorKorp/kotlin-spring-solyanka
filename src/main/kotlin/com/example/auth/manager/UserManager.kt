@@ -1,23 +1,24 @@
-package com.example.auth.manager.dbmanager
+package com.example.auth.manager
 
 import com.example.auth.dto.UserChangePasswordDto
 import com.example.auth.dto.UserDto
 import com.example.auth.entities.User
 import com.example.auth.entities.UserToken
+import com.example.auth.manager.dbmanager.UserDbManager
 import com.example.auth.message.ResponseMessage
 import com.example.auth.repository.UserRepository
 import com.example.auth.repository.UserTokenRepository
 import com.example.auth.security.AuthToken
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.http.ResponseEntity
-import java.util.*
 
 class UserManager(
-    val userRepository: UserRepository,
-    val userTokenRepository: UserTokenRepository
+    private val userRepository: UserRepository,
+    private val userTokenRepository: UserTokenRepository,
+//    private val userDbManager: UserDbManager
 ) {
 
-    fun all(): Iterable<User> = userRepository.findAll()
+    fun all(): List<User> = userRepository.findAll()
+
+//    fun test(): User? = userDbManager.getUser("Peck")
 
     fun createUser(userDto: UserDto): User {
         val user = User()

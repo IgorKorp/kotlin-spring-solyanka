@@ -13,4 +13,5 @@ interface UserRepository: JpaRepository<User, Long> {
 
     fun findByLogin(@Param("login") login: String): User?
 
+
 }

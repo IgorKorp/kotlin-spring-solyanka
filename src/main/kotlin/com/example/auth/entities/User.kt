@@ -1,5 +1,6 @@
 package com.example.auth.entities
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.*
 import javax.validation.constraints.*
 
@@ -10,13 +11,16 @@ class User(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0,
+    var id: Long = 0,
 
-    @Column(unique =  true)
+    @Column(unique =  true, nullable = false)
     var login: String? = null,
 
 
+
 ){
+    @JsonIgnore
+    @Column(nullable = false)
     var password: String? = null
         get() = field
         set(value) {
