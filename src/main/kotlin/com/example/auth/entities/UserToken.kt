@@ -12,6 +12,7 @@ class UserToken(
     @Column(unique =  true)
     var login: String = "",
 
+    @Column(unique =  true)
     var token: String = ""
 
 )

@@ -36,3 +36,8 @@ out/
 ### VS Code ###
 .vscode/
 
+src/main/kotlin/com/example/auth/controllers/UserControllerback.txt
+src/main/kotlin/com/example/auth/endpoints/
+src/main/kotlin/com/example/auth/manager/dbmanager/UgggserManager.txt
+
+

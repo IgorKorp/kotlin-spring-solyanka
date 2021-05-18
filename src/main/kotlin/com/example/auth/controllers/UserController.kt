@@ -3,24 +3,30 @@ package com.example.auth.controllers
 import com.example.auth.dto.UserChangePasswordDto
 import com.example.auth.dto.UserDto
 import com.example.auth.entities.User
-import com.example.auth.manager.dbmanager.UserManager
+import com.example.auth.manager.UserManager
 import com.example.auth.repository.UserRepository
-import com.example.auth.security.AuthToken
-import com.google.gson.Gson
-import org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import org.springframework.web.bind.annotation.*
-import javax.validation.Valid
 import org.springframework.http.ResponseEntity
-import org.springframework.validation.Errors
 import org.springframework.web.bind.MethodArgumentNotValidException
-import java.util.*
 
 
 @RestController
 class UserController(val userManager: UserManager) {
 
+    private lateinit var userRepository: UserRepository
+
+
     @GetMapping("/users")
     fun index() = userManager.all()
+
+    @GetMapping("/test")
+//    fun test() = userManager.test()
+    fun test(): User? {
+
+        var user : User? = userRepository.findByLogin("Peck")
+
+        return user
+    }
 
     @PostMapping("/user/registration")
     @ResponseBody
