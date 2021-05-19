@@ -7,7 +7,7 @@
 git clone git@github.com:IgorKorp/kotlin-spring-solyanka.git
 cd kotlin-spring-solyanka
 ```
-Запуск docker:
+Запуск docker: (Запустится PostgreSQl -- нужно для бд)
 ```bash
 docker-compose build
 docker-compose up -d 
@@ -21,17 +21,17 @@ docker-compose up -d
 ```shell
 java  -jar ./build/libs/auth\ -0.0.1-SNAPSHOT.jar 
 ```
-Либо все одной командой:
+или одной командой:
 ```shell
 ./gradlew bootRun
 ```
 
 ## Пример использования:
-ресурс "/users" для получения всех пользователей.
+1. ресурс "/users" для получения всех пользователей.
 ```
 GET http://localhost:8080/users
 ```
-ресурс "/user/registration" для создания нового пользователя(Принимает json логин и пароль).
+2. ресурс "/user/registration" для создания нового пользователя(Принимает json логин и пароль).
 ```
 POST http://0.0.0.0:3000/user/registration
 ```
@@ -42,7 +42,7 @@ POST http://0.0.0.0:3000/user/registration
 }
 ```
 
-ресурс "/user/auth" для авторизации пользователя, возвращает токен(Принимает json логин и пароль).
+3. ресурс "/user/auth" для авторизации пользователя, возвращает токен(Принимает json логин и пароль).
 ```
 POST http://localhost:8080/user/auth
 ```
@@ -53,7 +53,7 @@ POST http://localhost:8080/user/auth
 }
 ```
 
-ресурс "/user/{login}" для смены пароля, в(Принимает json старый пароль, два новых и  токен).
+4. ресурс "/user/{login}" для смены пароля, в(Принимает json старый пароль, два новых и  токен).
 ```
 POST http://localhost:8080/user/Peck
 ```
