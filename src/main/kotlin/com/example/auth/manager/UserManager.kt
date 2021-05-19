@@ -15,25 +15,11 @@ class UserManager(
 ) {
 
     fun all(): List<User> = userDbManager.getUsers()
-//
-//    fun test(userDto: UserDto): User? {
-//        val user = User()
-//        user.login = userDto.login.trim()
-//        user.password = userDto.password.trim()
-//
-//        return userDbManager.save(user)
-//    }
 
     fun createUser(userDto: UserDto): User {
         val user = User()
         user.login = userDto.login.trim()
         user.password = userDto.password.trim()
-
-//        val userToken = UserToken()
-//        userToken.token = null
-//        userTokenDbManager.save(userToken)
-//
-//        user.userTokenId = userToken
         userDbManager.save(user)
         return user
     }
@@ -73,28 +59,7 @@ class UserManager(
             userTokenDbManager.save(newUserToken)
             return ResponseMessage("ok", newUserToken, 200)
         }
-
         return ResponseMessage("Unauthorized", user,401)
-
     }
 
-//    fun authUser(userDto: UserDto): ResponseMessage {
-//        val user = userDbManager.getUserByLogin(userDto.login)
-//        if (user == null) {
-//            return ResponseMessage("user not found", user, 404)
-//        }
-//        if (user.password.equals(userDto.password.trim())) {
-//            if (user.userTokenId!!.token != null) {
-//                return ResponseMessage("ok", user.userTokenId, 200)
-//            }
-//            user.userTokenId!!.token = AuthToken.generateToken(80)
-//            userDbManager.save(user)
-////            val userTokenid = UserToken()
-////            userTokenid.id = user.userTokenId!!.id
-////            userTokenid.token = AuthToken.generateToken(80)
-////            userTokenDbManager.update(userTokenid)
-//            return ResponseMessage("ok", user.userTokenId, 200)
-//        }
-//        return ResponseMessage("Unauthorized", user,401)
-//    }
 }

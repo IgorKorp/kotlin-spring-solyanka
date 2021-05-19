@@ -14,16 +14,8 @@ import java.io.Serializable
 @RestController
 class UserController(val userManager: UserManager) {
 
-
     @GetMapping("/users")
     fun index() = userManager.all()
-
-//    @PostMapping("/test")
-//    @ResponseBody
-//    fun test(@RequestBody userDto: UserDto ): User? {
-//        return userManager.test(userDto)
-//    }
-
 
     @PostMapping("/user/registration")
     @ResponseBody
@@ -58,6 +50,5 @@ class UserController(val userManager: UserManager) {
 
     data class Errors(val errors: List<Error>)
     data class Error(val field: String, val message: String)
-
 
 }

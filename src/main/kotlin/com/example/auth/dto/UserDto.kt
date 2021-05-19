@@ -3,7 +3,6 @@ package com.example.auth.dto
 import javax.validation.constraints.*
 
 class UserDto {
-
     @field:Size(min = 4, max = 15, message = "Длина должна быть от 4-х до 10-ти символов")
     @field:NotBlank
     val login: String = ""

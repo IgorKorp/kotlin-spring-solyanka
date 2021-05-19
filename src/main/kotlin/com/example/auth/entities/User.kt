@@ -12,11 +12,6 @@ class User(
 
     @Column(unique =  true, nullable = false)
     var login: String? = null,
-
-//    @JoinColumn(name = "user_token_id")
-//    @OneToOne(fetch = FetchType.EAGER)
-//    var userTokenId: UserToken? = null
-
 ){
     @JsonIgnore
     @Column(nullable = false)
