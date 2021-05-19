@@ -5,7 +5,7 @@
 
 ```shell
 git clone git@github.com:IgorKorp/kotlin-spring-solyanka.git
-cd test
+cd kotlin-spring-solyanka
 ```
 Запуск docker:
 ```bash
