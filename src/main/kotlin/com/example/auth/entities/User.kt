@@ -2,13 +2,10 @@ package com.example.auth.entities
 
 import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.*
-import javax.validation.constraints.*
-
 
 @Entity
 @Table(name = "users")
 class User(
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = 0,
@@ -16,7 +13,9 @@ class User(
     @Column(unique =  true, nullable = false)
     var login: String? = null,
 
-
+//    @JoinColumn(name = "user_token_id")
+//    @OneToOne(fetch = FetchType.EAGER)
+//    var userTokenId: UserToken? = null
 
 ){
     @JsonIgnore

@@ -8,25 +8,22 @@ import com.example.auth.repository.UserRepository
 import org.springframework.web.bind.annotation.*
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.MethodArgumentNotValidException
+import java.io.Serializable
 
 
 @RestController
 class UserController(val userManager: UserManager) {
 
-    private lateinit var userRepository: UserRepository
-
 
     @GetMapping("/users")
     fun index() = userManager.all()
 
-    @GetMapping("/test")
-//    fun test() = userManager.test()
-    fun test(): User? {
+//    @PostMapping("/test")
+//    @ResponseBody
+//    fun test(@RequestBody userDto: UserDto ): User? {
+//        return userManager.test(userDto)
+//    }
 
-        var user : User? = userRepository.findByLogin("Peck")
-
-        return user
-    }
 
     @PostMapping("/user/registration")
     @ResponseBody
