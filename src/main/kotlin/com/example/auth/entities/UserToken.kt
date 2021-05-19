@@ -7,13 +7,12 @@ import javax.persistence.*
 class UserToken(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0,
+    var id: Long? = 0,
 
-    @Column(unique =  true)
-    var login: String = "",
+    @Column(unique =  true, nullable = true)
+    var token: String? = null,
 
-    @Column(unique =  true)
-    var token: String = ""
-
+    @Column(unique =  true, nullable = false)
+    var login: String? = null
 )
 
