@@ -14,10 +14,6 @@ open class UserDbManager(
     private val sessionFactory: SessionFactory,
 
 ) {
-//    @Autowired
-//    private val  sessionFactory : SessionFactory
-//var sessionFactory: SessionFactory = Csonfiguration().configure().buildSessionFactory()
-
     @Transactional
     open fun getUser(id: Long): User? {
         return sessionFactory.openSession().get(User::class.java, id)

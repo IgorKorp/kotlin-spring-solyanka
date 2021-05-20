@@ -1,7 +1,6 @@
 package com.example.auth.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.google.gson.annotations.SerializedName
 
 data class UserChangePasswordDto(
     @JsonProperty("old_password")
@@ -15,6 +14,4 @@ data class UserChangePasswordDto(
 
     @JsonProperty("token")
     val token: String
-
-
 )
