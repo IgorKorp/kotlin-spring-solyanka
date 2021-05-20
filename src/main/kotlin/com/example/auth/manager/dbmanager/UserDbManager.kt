@@ -16,7 +16,10 @@ open class UserDbManager(
 ) {
     @Transactional
     open fun getUser(id: Long): User? {
-        return sessionFactory.openSession().get(User::class.java, id)
+        val session =  sessionFactory.openSession()
+        val user = session.get(User::class.java, id)
+        session.close()
+        return user
     }
 
     @Transactional
@@ -33,14 +36,19 @@ open class UserDbManager(
             .select(table)
             .where(*conditions.toTypedArray())
 
-        return session
+        val user =  session
             .createQuery(query)
             .uniqueResult()
+        session.close()
+        return user
+
     }
 
     @Transactional
     open fun save(user: User): User? {
-        sessionFactory.openSession().saveOrUpdate(user)
+        val session = sessionFactory.openSession()
+        session.saveOrUpdate(user)
+        session.close()
         return user
     }
 
@@ -54,9 +62,11 @@ open class UserDbManager(
         query
             .select(table)
 
-        return session
+        val users =  session
             .createQuery(query)
             .list()
+        session.close()
+        return users
     }
 
 }

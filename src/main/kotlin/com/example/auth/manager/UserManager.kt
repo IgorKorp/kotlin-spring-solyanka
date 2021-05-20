@@ -26,10 +26,10 @@ class UserManager(
 
     fun changePassword(login : String, userChangePasswordDto: UserChangePasswordDto): ResponseMessage {
         val user = userDbManager.getUserByLogin(login)
-        val userToken = userTokenDbManager.getUserTokenByLogin(login)
         if (user == null) {
             return ResponseMessage("login is not found ", user, 404)
         }
+        val userToken = userTokenDbManager.getUserTokenByLogin(login)
 
         if (userToken != null && userToken.token == userChangePasswordDto.token.trim()) {
             if (user.password.equals(userChangePasswordDto.oldPassword) && userChangePasswordDto.newPassword.trim() == userChangePasswordDto.newConfirmedPassword) {

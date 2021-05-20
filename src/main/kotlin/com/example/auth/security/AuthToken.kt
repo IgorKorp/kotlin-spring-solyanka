@@ -4,10 +4,6 @@ import java.util.concurrent.ThreadLocalRandom
 
 const val AUTH_TOKEN_LENGTH: Int = 12
 
-/**
- * Хранит авторизационные токены - ID, с помощью которых авторизуются пользователи в сервисе.
- * @author Vladimir Novichkov <borman@ecwid.com>
- */
 data class AuthToken (
     var token: String = "",
     var profileId: Long = 0

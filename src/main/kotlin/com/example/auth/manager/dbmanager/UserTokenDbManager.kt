@@ -11,7 +11,10 @@ open class UserTokenDbManager(
 ) {
     @Transactional
     open fun get(id: Long?): UserToken? {
-        return sessionFactory.openSession().get(UserToken::class.java, id)
+        val session  = sessionFactory.openSession()
+        val userToken =  session.get(UserToken::class.java, id)
+        session.close()
+        return userToken
     }
     @Transactional
     open fun getUserTokenByLogin(login: String): UserToken? {
@@ -27,20 +30,26 @@ open class UserTokenDbManager(
             .select(table)
             .where(*conditions.toTypedArray())
 
-        return session
+        val userToken =  session
             .createQuery(query)
             .uniqueResult()
+        session.close()
+        return userToken
     }
 
     @Transactional
     open fun save(userToken: UserToken): UserToken? {
-        sessionFactory.openSession().save(userToken)
+        val session = sessionFactory.openSession()
+        session.save(userToken)
+        session.close()
         return userToken
     }
 
     @Transactional
     open fun update(userToken: UserToken?): UserToken? {
-        sessionFactory.openSession().update(userToken)
+        val session = sessionFactory.openSession()
+        session.update(userToken)
+        session.close()
         return userToken
     }
 }

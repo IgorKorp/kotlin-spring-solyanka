@@ -29,11 +29,11 @@ java  -jar ./build/libs/auth\ -0.0.1-SNAPSHOT.jar
 ## Пример использования:
 1. ресурс "/users" для получения всех пользователей.
 ```
-GET http://localhost:8080/users
+GET http://localhost:8089/users
 ```
 2. ресурс "/user/registration" для создания нового пользователя(Принимает json логин и пароль).
 ```
-POST http://localhost:8080/user/registration
+POST http://localhost:8089/user/registration
 ```
 ```json
 {
@@ -44,7 +44,7 @@ POST http://localhost:8080/user/registration
 
 3. ресурс "/user/auth" для авторизации пользователя, возвращает токен(Принимает json логин и пароль).
 ```
-POST http://localhost:8080/user/auth
+POST http://localhost:8089/user/auth
 ```
 ```json
 {
@@ -55,7 +55,7 @@ POST http://localhost:8080/user/auth
 
 4. ресурс "/user/{login}" для смены пароля, в(Принимает json старый пароль, два новых и  токен).
 ```
-POST http://localhost:8080/user/Peck
+POST http://localhost:8089/user/Peck
 ```
 ```json
 {
