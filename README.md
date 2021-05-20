@@ -33,7 +33,7 @@ GET http://localhost:8080/users
 ```
 2. ресурс "/user/registration" для создания нового пользователя(Принимает json логин и пароль).
 ```
-POST http://0.0.0.0:3000/user/registration
+POST http://localhost:8080/user/registration
 ```
 ```json
 {
